@@ -1,0 +1,81 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  background: url(https://images2.alphacoders.com/652/652776.jpg) no-repeat;
+  background-size: 100% 100%;
+}
+
+/* Logo and name */
+header {
+  padding-top: 40px;
+  text-align: center;
+  color: white;
+  font-size: xx-large;
+}
+
+header > i {
+  margin-right: 15px;
+}
+
+/* Log in form */
+main {
+  width: 25%;
+  height: 45%;
+  padding: 10px;
+  color: white;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  background: #00000050;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: center;
+}
+
+main a {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+}
+
+main div:has(button) {
+  clear: both;
+}
+
+input,
+button {
+  border-radius: 20px !important;
+  opacity: 0.8;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.position-relative input {
+  padding-left: 40px !important;
+  margin-bottom: 10px;
+  height: 40px;
+  background-color: #ffffff;
+  border: 0;
+}
+
+.position-relative input:-ms-input-placeholder {
+  opacity: 1;
+}
+
+.position-relative i {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: black;
+}
+

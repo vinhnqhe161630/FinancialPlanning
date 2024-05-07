@@ -1,0 +1,99 @@
+
+main {
+    position: absolute;
+    /* min-width: calc(100vw - 80px); */
+    width: calc(100vw - 80px);
+    min-width: 1050px;
+    left: 60px;
+    padding: 30px;
+  }
+  
+  
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  #back-link {
+    font-size: 18px;
+  }
+  
+  #back-link:hover {
+    color: var(--button-background);
+  }
+  
+  app-upload {
+    display: block;
+  }
+  
+  #template {
+    background-color: #f5f5f5;
+    vertical-align: middle;
+  }
+  
+  #template a:hover {
+    color: var(--button-background);
+  }
+  
+  #template p {
+    font-size: 14px;
+    color: grey;
+  }
+  
+  button {
+    width: 105px;
+    height: 40px;
+    background-color: white;
+    padding: 0.5rem 1rem;
+  }
+  
+  button:hover:not(:disabled) {
+    background-color: var(--button-background) !important;
+    color: white;
+  }
+  
+  ::ng-deep .mdc-text-field {
+    background-color: transparent !important;
+    overflow: hidden;
+  }
+  
+  ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    border: 2px solid var(--white-smoke);
+    border-radius: 10px;
+  }
+  
+  table {
+    width: 100%;
+    border: 2px solid var(--white-smoke);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    overflow: hidden !important;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+    flex-shrink: 1;
+  }
+  
+  th {
+    font-weight: 900;
+    background-color: #f2f4f3 !important;
+  }
+  
+  ::ng-deep .mat-mdc-paginator {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    overflow: hidden;
+  }
+  
+  #submit-button {
+    width: 150px;
+    background-color: var(--button-background);
+    color: white;
+  }
+  
+  #submit-button:hover:not(:disabled) {
+    background-color: var(--button-hover) !important;
+  }
+  
+  #submit-button:disabled {
+    background-color: var(--white-smoke);
+  }
+  

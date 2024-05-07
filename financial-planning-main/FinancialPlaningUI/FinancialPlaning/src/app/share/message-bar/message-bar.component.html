@@ -1,0 +1,10 @@
+<!-- message-bar.component.html -->
+<span>
+  <i [class]="getIconClass()"></i>
+  {{ data.message }}
+</span>
+<span matSnackBarActions >
+  <button mat-button matSnackBarAction (click)="snackBarRef.dismissWithAction()">
+    <i class="fa-solid fa-x"></i>
+  </button>
+</span>

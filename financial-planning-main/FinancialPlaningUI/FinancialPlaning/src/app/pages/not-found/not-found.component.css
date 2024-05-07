@@ -1,0 +1,43 @@
+main {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  /* background-color: #3838dd; */
+}
+
+div {   
+  z-index: 2;
+  left: 50%;
+  top: 75%;
+  transform: translate(-50%, -50%);
+}
+
+h6 {
+  color: #656565;
+  font-weight: 200;
+}
+
+button {
+  background-color: var(--button-background);
+}
+
+button:hover {
+  /* background-color: #f0ec9a; */
+  background-color: var(--button-hover);
+}
+
+a {
+  background-color: transparent;
+  color: white;
+}
+
+video {
+  height: 90%;
+}
+
+img {
+  top: 37%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+}

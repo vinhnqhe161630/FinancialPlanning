@@ -1,0 +1,116 @@
+<main>
+  <div class="containerr mb-4 pb-3 mx-0">
+    <div id="page-title">
+      <h3><b> Financial Plans</b></h3>
+      <h6>Plan List</h6>
+    </div>
+    
+    <div class="top-button">
+      <a class="create-button" routerLink="/import-plan">
+        <button><i class="fa-solid fa-upload me-1"></i> Import</button>
+      </a> 
+    </div>
+  
+  </div>
+    <div class="mb-4 row">
+      <form class="searchBar col-6">
+        <input type="text" placeholder="Search for Plans" (input)="changeSearchText($event)" />
+        <i class="fa-solid fa-search"></i>
+      </form>
+      <button id="filter-button" class="btn col-6 ms-4" (click)="filterStatusEnable = !filterStatusEnable"><mat-icon
+          class="align-middle">filter_list</mat-icon> More </button>
+    </div>
+  <div *ngIf="filterStatusEnable">
+      <mat-form-field [hidden]="role !== 'FinancialStaff'" >
+        <mat-label  >Department</mat-label>
+        <mat-select [(value)]="selectedDepartment" (selectionChange)="onDepartmentSelected($event)">
+          <mat-option value="All">All</mat-option>
+          @for (depart of departments; track depart) {
+          <mat-option [value]="depart">{{depart}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field >
+        <mat-label >Term</mat-label>
+        <mat-select [(value)]="selectedTerm" (selectionChange)="onTermSelected($event)">
+          <mat-option value="All">All</mat-option>
+          @for (term of terms; track term) {
+          <mat-option [value]="term">{{term}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>  
+
+      <mat-form-field >
+      <mat-label >Status</mat-label>
+      <mat-select [(value)]="selectedStatus" (selectionChange)="onStatusSelected($event)">
+        <mat-option value="All">All</mat-option>
+          @for (Status of status; track Status) {
+          <mat-option [value]="Status">{{Status}}</mat-option>}
+      </mat-select>
+
+    </mat-form-field>
+  </div>
+  
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" [hidden]="dataSource.length==0">
+    <ng-container matColumnDef="no">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element, let i = index"> {{ (i + 1)+(pageSize*pageIndex) }} </td>
+    </ng-container>
+    <ng-container matColumnDef="plan">
+      <th mat-header-cell *matHeaderCellDef>Plan</th>
+      <td mat-cell *matCellDef="let plan">{{plan.plan}}</td>
+    </ng-container>
+    <ng-container matColumnDef="term">
+      <th mat-header-cell *matHeaderCellDef>Term</th>
+      <td mat-cell *matCellDef="let plan">{{plan.term}}</td>
+    </ng-container>
+    <ng-container matColumnDef="department">
+      <th mat-header-cell *matHeaderCellDef>Department</th>
+      <td mat-cell *matCellDef="let plan">{{plan.department}}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="version">
+      <th mat-header-cell *matHeaderCellDef>Version</th>
+      <td mat-cell *matCellDef="let plan">V{{plan.version}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>Status</th>
+      <td mat-cell *matCellDef="let plan">
+        <span class="px-2 py-2 rounded-pill"
+        [ngStyle]="{'background-color': plan.status == 'New' ? 'var(--new-status-background)'
+         : plan.status == 'Waiting for Approval' ? 'var(--inprogress-status-background)'
+         : plan.status == 'Approved' ? 'var(--approved-status-background)'
+        : 'var(--closed-status-background)'}">
+       
+        <i class="fa-solid fa-circle align-middle me-1"
+          [ngStyle]="{'color': plan.status == 'New' ? 'var(--new-status-color)'
+           : plan.status == 'Waiting for Approval' ? 'var(--inprogress-status-color)'
+           : plan.status == 'Approved' ? 'var(--approved-status-color)'
+           : 'var(--closed-status-color)', 'font-size': '10px'}"></i>
+          {{ plan.status}} </span>  
+      </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let plan">
+        <a [routerLink]="[ '/plan-details/', plan.id ]"><mat-icon>visibility</mat-icon></a>
+        <a [hidden]="(plan.status != 'New')" *ngIf="showEditDeleteButton(plan)" (click)="openDeleteDialog(plan.id)"><mat-icon>delete</mat-icon></a>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="columnHeaders"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnHeaders;"></tr>
+  </table>
+  <div *ngIf="dataSource.length==0" class="emtry-data-message">
+    No items match your credentials, please try again.
+  </div>
+  <mat-paginator [length]="listSize" [pageSize]="pageSize" [pageIndex]="pageIndex" (page)="onPageChange($event)"
+    [hidden]="dataSource.length==0 || (dataSource.length<pageSize && pageIndex==0)">
+  </mat-paginator>
+</main>
+<footer>
+  <!-- Your footer content goes here -->
+</footer>

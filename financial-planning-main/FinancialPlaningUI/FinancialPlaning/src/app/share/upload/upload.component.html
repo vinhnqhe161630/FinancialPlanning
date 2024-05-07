@@ -1,0 +1,15 @@
+<div id="upload" class="w-100 border border-3 rounded-4 border-primary mb-2" [ngStyle]="{'height': '81%'}">
+  <form action="#" role="button" class="w-100 h-100 d-flex justify-content-center">
+    <input type="file" class="file-input" (change)="onChange($event)" hidden/>
+    <p class="text-center my-auto" *ngIf="loading"><mat-spinner class="custom-spinner" [diameter]="60"></mat-spinner></p>
+    <p style="width: 100%;" class="text-center my-auto" *ngIf="!loading" (click)="loading ? $event.stopPropagation() : onClick()">
+      <i class="fa-solid fa-cloud-upload-alt text-primary"></i><br />
+      <b>Browse File to Upload</b>
+    </p>
+  </form>
+</div>
+
+<div id="instruction-text" class="row text-secondary" [ngStyle]="{'height': '9%'}">
+  <p class="col-6">Allowed file type: xls, xlsx, csv</p>
+  <p class="col-6 text-end">Maximum volume: 500MB</p>
+</div>

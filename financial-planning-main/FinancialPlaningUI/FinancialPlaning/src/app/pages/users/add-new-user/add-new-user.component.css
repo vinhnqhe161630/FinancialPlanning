@@ -1,0 +1,238 @@
+form {
+  width: 100%;
+  /* Set form width to 100% */
+}
+
+
+form input,
+form select {
+  border: 2px solid #575757;
+  border-radius: 4px;
+  /* width: 60%; */
+  height: 50px;
+  padding: 0 15px;
+  transition: .25s ease;
+  background-color: #EBEEF3;
+  width: 100%;
+
+}
+
+.mb-0 {
+  font-weight: bolder;
+  color: #070707;
+  font-size: larger;
+}
+
+form input:focus,
+form select:focus {
+  border-color: rgb(133, 68, 165);
+}
+
+.mat-input-group {
+  position: relative;
+}
+
+.mat-datepicker-toggle {
+  position: absolute;
+  top: 50%;
+  right: 10px; /* Điều chỉnh giá trị phù hợp */
+  transform: translateY(-54%);
+}
+
+.loader {
+  width: 20px;
+  height:20px; /* Thêm chiều cao để tạo thành hình tròn */
+  display: inline-flex; /* Sử dụng inline-flex để căn giữa theo chiều ngang và chiều dọc */
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  animation: l20-1 0.8s infinite linear alternate, l20-2 1.6s infinite linear;
+}
+
+@keyframes l20-1 {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%)
+  }
+
+  12.5% {
+    clip-path: polygon(50% 50%, 0 0, 50% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%)
+  }
+
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 50% 0%, 100% 0%, 100% 100%, 100% 100%, 100% 100%)
+  }
+
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 50% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%)
+  }
+
+  62.5% {
+    clip-path: polygon(50% 50%, 100% 0, 100% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%)
+  }
+
+  75% {
+    clip-path: polygon(50% 50%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 50% 100%, 0% 100%)
+  }
+
+  100% {
+    clip-path: polygon(50% 50%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 0% 100%)
+  }
+}
+
+@keyframes l20-2 {
+  0% {
+    transform: scaleY(1) rotate(0deg)
+  }
+
+  49.99% {
+    transform: scaleY(1) rotate(135deg)
+  }
+
+  50% {
+    transform: scaleY(-1) rotate(0deg)
+  }
+
+  100% {
+    transform: scaleY(-1) rotate(-135deg)
+  }
+}
+
+.form-field {
+  position: relative;
+}
+
+a.user-list-link {
+  color: black;
+  /* Màu chữ đen */
+  text-decoration: none;
+}
+
+#note {
+  background-color: #EBEEF3;
+  /* Màu nền */
+  color: #070707;
+  /* Màu chữ */
+  border: 2px solid #575757;
+}
+
+.form-control:focus+label {
+  top: 0px;
+  padding: 10px;
+  display: inline-block;
+  background-color: white;
+  color: rgb(133, 68, 165);
+}
+
+/* form div.error-message {
+  color: red;
+  font-size: 14px;
+  padding-left: 10px;
+  font-weight: bolder;
+} */
+.error-message {
+  margin-top: 6px; /* Tạo một khoảng trống giữa ô và thông báo lỗi */
+  position: relative; /* Đảm bảo vị trí tương đối */
+}
+
+.error-message .error-text {
+  position: absolute;
+  bottom: 1px; /* Đặt vị trí cố định của thông báo lỗi */
+  left: 0;
+  width: 100%; /* Đảm bảo thông báo lỗi có chiều rộng 100% */
+  color: red;
+  font-size: 14px;
+  padding-left: 10px;
+  font-weight: bolder;
+}
+
+
+table {
+  text-align: center;
+  overflow: scroll;
+}
+
+
+main {
+  box-shadow: none;
+  padding-top: 1%;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-bottom: 2.3%;
+  background-color: #E6E6E6;
+  position: relative;
+
+}
+
+main>h6>a {
+  text-decoration: none;
+}
+
+.required-star {
+  color: red;
+  /* Màu đỏ */
+  font-weight: bolder;
+}
+
+#username::placeholder {
+  font-size: 16px;
+  /* Kích thước chữ mong muốn */
+  color: red;
+  font-weight: bold;
+}
+
+main>div {
+  border-radius: 24px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: #FAF6F6;
+  margin-left: 3%;
+  margin-right: 3%;
+  /* height: 50%; */
+
+}
+
+.btn-disabled {
+  background-color: #5C636A;
+  /* Thay đổi màu nền */
+  color: white;
+  /* Thay đổi màu chữ */
+  cursor: not-allowed;
+  /* Thay đổi kiểu con trỏ */
+}
+
+.mb-4 {
+  font-weight: bolder;
+
+}
+
+.custom-background {
+  background-color: #EBEEF3;
+}
+
+.button {
+  position: relative;
+  width: 70%;
+  margin-left: 30%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+.custom-row {
+  padding-top: 1rem; /* Thay đổi giá trị padding trên */
+}
+#banIcon::after {
+  content: "This field cannot be edited";
+  position: absolute;
+  color: #ee0000; 
+  font-size: 14px; 
+  background-color: #FAF6F6;
+  display: none;
+  white-space: nowrap; 
+  font-variant: small-caps; 
+  letter-spacing: 2px; 
+}
+
+
+
+#banIcon:hover::after {
+  display: block;
+}

@@ -1,0 +1,25 @@
+:root {
+  --success-color: #59de11;
+  --fail-color: #fb1b07;
+  --lavender: #a379c9;
+  --white-smoke: #d9dbda;
+  --sidenav-secondary-background: #6744ff;
+  --sidenav-primary-background: #152630;
+  --icon-background: #28485a;
+  --new-status-background: #e7e7f9;
+  --new-status-color: #7a97f7;
+  --inprogress-status-background: #fff2df;
+  --inprogress-status-color: #ffa500;
+  --closed-status-background: #ececec;
+  --closed-status-color: #808080; 
+  --button-background: #6F4EFF;
+  --button-hover: #553cb9;
+  --version-background: #fff5cc;
+  --close-button-background: #f88477;
+  --approved-status-background: #e7f9e7;
+  --approved-status-color: #7af787;
+}
+
+body {
+  font-family: 'Lato', Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
+}

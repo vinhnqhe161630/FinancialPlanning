@@ -1,0 +1,66 @@
+<main>
+    <a [routerLink]="['/terms']" id="back-link"><i class="fa-solid fa-arrow-left-long me-2 mb-3"></i> Back </a>
+    <div class="container mb-4 pb-3 mx-0">
+        <h1><b>Term details</b></h1>
+
+       
+        <a id="edit-button" (click)="editTerm()" [hidden]="termStatus != 'New' || role!='Accountant'">
+            <button>
+               <i class="fa-solid fa-pen-to-square"></i> 
+               Edit
+            </button>
+        </a>
+    </div>
+    
+    <div class="float-end abc">
+        Status: 
+        <span class="px-2 py-2 rounded-pill"
+     [ngStyle]="{'background-color': termStatus === 'New' ? 'var(--new-status-background)' : termStatus === 'In Progress' ? 'var(--inprogress-status-background)' : 'var(--closed-status-background)'}">
+           <i class="fa-solid fa-circle align-middle me-1" [ngStyle]="{'color': termStatus === 'New' ? 'var(--new-status-color)' : termStatus === 'In Progress' ? 'var(--inprogress-status-color)' : 'var(--closed-status-color)', 'font-size': '10px'}"></i>
+           {{termStatus}}
+       </span>
+   </div>
+    <div class="doc-info mb-5 card">
+        <form [formGroup]="termForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-6">
+                    <h4><label for="term-name" class="form-label">Term name</label></h4>
+                    <input class="form-control" type="text" id="term-name" formControlName="termName" />
+                </div>
+                <div class="col-6">
+                    <h4><label for="start-date" class="form-label">Start date</label></h4>
+                    <input class="form-control" type="date" id="start-date" formControlName="startDate" />
+                </div>
+                <div class="col-6">
+                    <h4><label for="duration" class="form-label">Duration</label></h4>
+                    <select class="form-control" id="duration" formControlName="duration">
+                        <option value="1_month">1 Month</option>
+                        <option value="quarter">Quarter</option>
+                        <option value="half_year">Half Year</option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <h4><label for="end-date" class="form-label">End date</label></h4>
+                    <input class="form-control" type="date" id="end-date" formControlName="endDate" />
+                </div>
+                <div class="col-6">
+                    <h4><label for="plan-due-date" class="form-label">Plan due date</label></h4>
+                    <input class="form-control" type="date" id="plan-due-date" formControlName="planDueDate" />
+                </div>
+                <div class="col-6">
+                    <h4><label for="report-due-date" class="form-label">Report due date</label></h4>
+                    <input class="form-control" type="date" id="report-due-date" formControlName="reportDueDate"/>
+                </div>
+            </div>
+            <!-- <div class="row mt-4">
+                <div class="col-12">
+                    <button class="btn btn-primary" type="submit">Create</button>
+                    <button class="btn btn-secondary" type="button" (click)="onCancel()">Cancel</button>
+                </div>
+            </div> -->
+        </form>
+    </div>
+</main>
+<footer>
+    <!-- Your footer content goes here -->
+</footer>

@@ -1,0 +1,15 @@
+<aside id="sidenav">
+  <img src="../../../assets/img/logo.png" alt="logo" class="logo">
+  <b>Financial Plan System</b>
+  <div id="account">
+    <i class="fa-regular fa-user my-auto mx-3"></i>
+    <div class="d-grid align-self-center fw-bolder w-45">{{ username }}<span id="role" class="d-block">{{role}}</span>
+    </div>
+    <a role="button" id="logout" class="mx-0 my-auto" (click)="logout()">
+      <i class="fa-solid fa-arrow-right-from-bracket"></i>
+    </a>
+  </div>
+</aside>
+<div class="user-management">
+  <a routerLink="/user-list" class="centered-link"><i class="fa-solid fa-users"></i> <span class="link-text">User Management</span></a>
+</div>

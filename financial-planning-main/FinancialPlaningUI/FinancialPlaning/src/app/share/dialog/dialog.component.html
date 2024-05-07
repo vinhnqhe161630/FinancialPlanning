@@ -1,0 +1,11 @@
+<h1 mat-dialog-title [style.color]="data.action === 'delete' ? 'ff204e' : '#0079f1'">{{ data.title }}</h1>
+<mat-dialog-content>
+    <p><b>{{ data.content }}</b><p>
+    <p class="note">{{ data.note }}</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <!-- <button mat-button [mat-dialog-close]="'delete'" id="cancel-button">Cancel</button> -->
+  <button [hidden]="data.action == 'delete'"mat-button [mat-dialog-close]="'confirm'" cdkFocusInitial id="start-button">Confirm</button>
+  <button mat-button mat-dialog-close id="cancel-button">Close</button>
+  <button [hidden]="data.action != 'delete'"mat-button [mat-dialog-close]="'confirm'" cdkFocusInitial id="delete-button">Delete</button>
+</mat-dialog-actions>

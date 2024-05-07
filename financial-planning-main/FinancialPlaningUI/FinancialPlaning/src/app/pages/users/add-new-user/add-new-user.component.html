@@ -1,0 +1,280 @@
+<link rel="stylesheet" href="add-new-user.component.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<main>
+    @if (isEdit) {
+    <h3><b>User List</b></h3>
+    <h6>
+        <b><a routerLink="/user-list" class="user-list-link">User List</a></b> > Edit User
+    </h6>
+    }@else {
+    <h3><b>User List</b></h3>
+    <h6>
+        <b><a routerLink="/user-list" class="user-list-link">User List</a></b> > Create User
+    </h6>
+    }
+    <div class="row d-flex justify-content-center align-items-center ">
+
+        <form [formGroup]="addUserF" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row align-items-center custom-row">
+                        <div class="col-md-3 ps-5">
+                            <h6 class="mb-0">User Name<span class="required-star">*</span></h6>
+                        </div>
+                        @if (isEdit) {<div class="col-md-5 pe-3 position-relative">
+                            <input class="form-control form-control-lg" type="text" id="username"
+                                formControlName="username" readonly /> <i class="fa-solid fa-ban position-absolute top-50 start-100 translate-middle" id="banIcon"></i>
+                        </div>}
+                        @else {<div class="col-md-5 pe-3">
+                            <input class="form-control form-control-lg" type="text" id="username"
+                                formControlName="username" readonly />
+                        </div>}
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row align-items-center custom-row">
+                        <div class="col-md-3 ps-5">
+                            <h6 class="mb-0">Full Name<span class="required-star">*</span></h6>
+                        </div>
+                        <div class="col-md-5 pe-3">
+                            <input class="form-control form-control-lg" type="text" id="fullname"
+                                formControlName="fullName" #fullNameInput />
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-5 offset-md-3">
+                            <div class="error-message">
+                                <span class="text-danger"
+                                    *ngIf="addUserF['controls']['fullName'].dirty && addUserF['controls']['fullName'].errors">
+                                    <span class="error-text">Please enter valid Full Name</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="row align-items-center custom-row">
+                        <div class="col-md-3 ps-5">
+                            <h6 class="mb-0">Email<span class="required-star">*</span></h6>
+                        </div>
+                        <div class="col-md-5 pe-3">
+                            <input class="form-control form-control-lg" type="text" id="email"
+                                formControlName="email" />
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-5 offset-md-3">
+                                <div class="error-message">
+                                    <span class="text-danger"
+                                        *ngIf="addUserF['controls']['email'].dirty && addUserF['controls']['email'].errors">
+                                        <span class="error-text">Please enter valid Email</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row align-items-center custom-row">
+                        <div class="col-md-3 ps-5">
+                            <h6 class="mb-0">DOB<span class="required-star">*</span></h6>
+                        </div>
+                        <div class="datepicker-wrapper col-md-5 pe-3">
+                            <div class="form-group mat-input-group">
+                                <input matInput [matDatepicker]="dobPicker" placeholder="Choose a date"
+                                    formControlName="dob" class="form-control form-control-lg">
+                                <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
+                                <mat-datepicker #dobPicker></mat-datepicker>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-5 offset-md-3">
+                                <div class="error-message">
+                                    <span class="text-danger"
+                                        *ngIf="addUserF['controls']['dob'].dirty && addUserF['controls']['dob'].errors">
+                                        <span class="error-text">Date of Birth must be in the past</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="mx-n3">
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="row align-items-center custom-row">
+                        <div class="col-md-3 ps-5">
+                            <h6 class="mb-0">Phone Number<span class="required-star">*</span></h6>
+                        </div>
+                        <div class="col-md-5 pe-3">
+                            <input class="form-control form-control-lg" type="text" id="phonenumber"
+                                formControlName="phoneNumber" />
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-5 offset-md-3">
+                                <div class="error-message">
+                                    <span class="text-danger"
+                                        *ngIf="addUserF['controls']['phoneNumber'].dirty && addUserF['controls']['phoneNumber'].errors">
+                                        <span class="error-text">Please enter valid Phone Number</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row align-items-center custom-row">
+                        <div class="col-md-3 ps-5">
+                            <h6 class="mb-0">Address</h6>
+                        </div>
+                        <div class="col-md-5 pe-3">
+                            <input class="form-control form-control-lg" type="text" id="address"
+                                formControlName="address" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="row align-items-center custom-row">
+                        <div class="col-md-3 ps-5">
+                            <h6 class="mb-0">Department<span class="required-star">*</span></h6>
+                        </div>
+                        <div class="col-md-5 pe-3">
+                            <select class="form-control form-control-lg" id="department" formControlName="department">
+                                <option value="">Select</option>
+                                <option *ngFor="let department of departments" [value]="department.id">
+                                    {{ department.departmentName }}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-5 offset-md-3">
+                                <div class="error-message">
+                                    <span class="text-danger"
+                                        *ngIf="addUserF['controls']['department'].dirty && addUserF['controls']['department'].errors">
+                                        <span class="error-text">Please choose a Department</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row align-items-center custom-row">
+                        <div class="col-md-3 ps-5">
+                            <h6 class="mb-0">Position<span class="required-star">*</span></h6>
+                        </div>
+                        <div class="col-md-5 pe-3">
+                            <select class="form-control form-control-lg" id="position-select"
+                                formControlName="position">
+                                <option value="">Select</option>
+                                <option *ngFor="let position of positions" [value]="position.id">{{
+                                    position.positionName }}
+                                </option>
+                            </select>
+
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-5 offset-md-3">
+                                <div class="error-message">
+                                    <span class="text-danger"
+                                        *ngIf="addUserF['controls']['position'].dirty && addUserF['controls']['position'].errors">
+                                        <span class="error-text">Please choose a Position</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr class="mx-n3">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row align-items-center custom-row">
+                        <div class="col-md-3 ps-5">
+                            <h6 class="mb-0">Role<span class="required-star">*</span></h6>
+                        </div>
+                        <div class="col-md-5 pe-3">
+                            <select class="form-control form-control-lg" id="role-select" formControlName="role">
+                                <option value="">Select</option>
+                                <option *ngFor="let role of roles" [value]="role.id">{{ role.roleName }}</option>
+                            </select>
+
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-5 offset-md-3">
+                                <div class="error-message">
+                                    <span class="text-danger"
+                                        *ngIf="addUserF['controls']['role'].dirty && addUserF['controls']['role'].errors">
+                                        <span class="error-text">Please choose a Role</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row align-items-center custom-row">
+                        <div class="col-md-3 ps-5">
+                            <h6 class="mb-0">Status</h6>
+                        </div>
+                        @if (isEdit) {
+                        <div class="col-md-5 pe-3 position-relative">
+                            <input class="form-control form-control-lg" type="text" id="status" formControlName="status" 
+                                readonly /> <i class="fa-solid fa-ban position-absolute top-50 start-100 translate-middle" id="banIcon"></i>
+                        </div>} @else {
+                        <div class="col-md-5 pe-3">
+                            <div class="form-control form-control-lg custom-background" readonly>Active </div>
+                        </div>
+                        }
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row align-items-center custom-row">
+                        <div class="col-md-3 ps-5">
+                            <h6 class="mb-0">Note</h6>
+                        </div>
+                        <div class="col-md-5 pe-3">
+                            <textarea class="form-control form-control-lg" id="note" formControlName="notes"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <div class="button">
+                    @if (isEdit) { <div class="col-md-6 text-center">
+                        <button type="submit" class="btn btn-primary btn-lg me-3"
+                            [ngClass]="{'btn-disabled': !addUserF.valid}">Update</button>
+                        <button routerLink="/user-list" type="button" class="btn btn-secondary btn-lg">Cancel</button>
+                    </div>}
+                    @else { <div class="col-md-6 text-center">
+                        <button type="submit" class="btn btn-primary btn-lg me-3" [ngClass]="{'btn-disabled': !addUserF.valid || isSubmitting}" [disabled]="!addUserF.valid || isSubmitting">
+                            <span>Create</span>
+                            <span *ngIf="isSubmitting && addUserF.valid">
+                                <span class="loader"></span>
+                            </span>
+                        </button>
+                        <button routerLink="/user-list" type="button" class="btn btn-secondary btn-lg">Cancel</button>
+                    </div>
+                    }
+                </div>
+            </div>
+
+        </form>
+
+
+
+        <footer>
+
+        </footer>
+    </div>
+    
+</main>

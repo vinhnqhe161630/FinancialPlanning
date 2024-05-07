@@ -1,0 +1,91 @@
+#sidenav {
+  position: fixed;
+  width: 60px;
+  height: 100%;
+  padding-top: 1px;
+  transition: width 0.5s;
+  z-index: 1;
+  opacity: 95%;
+  overflow: hidden;
+  background-color: var(--sidenav-primary-background);
+  color: white;
+}
+
+#sidenav:hover {
+  width: 210px;
+  transition: width 0.5s;
+}
+
+#sidenav img {
+  width: 30px;
+  height: 30px;
+}
+
+#sidenav a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  margin: 20px 15px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: small;
+  height: 30px;
+  color: white;
+}
+
+#sidenav > a:first-child {
+  margin-top: 15px;
+  margin-bottom: 35px;
+  font-size: large;
+}
+
+#sidenav i {
+  display: flex;
+  height: 30px;
+  width: 30px;
+  margin-right: 20px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 20px;
+  color: white;
+  background-color: var(--icon-background);
+}
+
+a:hover i {
+  background-color: #4d8baf !important;
+}
+
+#account {
+  display: flex;
+  position: absolute;
+  bottom: 0px;
+  border-top-left-radius: 50px;
+  height: 70px;
+  background-color: var(--sidenav-secondary-background);
+  width: 210px;
+}
+
+#account > a > i {
+  font-size: large;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+}
+
+#role {
+  text-transform: uppercase;
+  font-size: xx-small;
+  color: var(--white-smoke);
+  letter-spacing: 1px;
+}
+
+#logout > i {
+  font-size: medium !important;
+  background-color: transparent !important;
+}
+
+#logout:hover > i {
+  color: #c6e53f;
+}

@@ -1,0 +1,13 @@
+﻿Format DD/MM/YYYY;;Dropdown list;Name of the expense;Dropdown list;;;Dropdown list;VLookup;;;Dropdown list;Dropdown list;;
+DATE;TERM;DEPARTMENT;EXPENSE;COST TYPE;UNIT PRICE;AMOUNT;Currency;Exchange rate;TOTAL;;PROJECT NAME;SUPPLIER NAME;PIC;NOTE
+08/03/2024;klsjdlk;Delivery;asdasd;Operation; $1,00 ;1;askjdhajsdh;2.0; $1,000 ;;Project Name 2;Supplier Name 1;amndsan;
+08/03/2024;klsjdlk;Delivery;asdasd;Operation; $1,00 ;1;askjdhajsdh;2.0; $1,000 ;;Project Name 2;Supplier Name 1;amndsan;akjdlkajd
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;

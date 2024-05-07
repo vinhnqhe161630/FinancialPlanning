@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#upload {
+  border-style: dashed !important;
+  padding: 0.5rem !important;
+  height: 30%;
+  background-color: #f0f1ff;
+}
+
+form i {
+  font-size: 50px;
+  color: var(--primary);
+}
+
+#instruction-text {
+  font-size: 14px;
+}
+
+::ng-deep svg.mdc-circular-progress__indeterminate-circle-graphic {
+  stroke: rgb(13, 110, 253) !important;
+}
+
+::ng-deep .success-snackbar .mdc-snackbar__surface{
+  background-color: #4CAF50;
+}
+::ng-deep .error-snackbar .mdc-snackbar__surface{
+  background-color: #FF5E5E;
+}

@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Start</h1>
+<mat-dialog-content>
+    <p>Are you sure you want to start this term?<p>
+    <p class="note">Please, rethink your decision because you will not be able to undo this action</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close id="cancel-button">Cancel</button>
+    <button mat-button [mat-dialog-close]="'start'" cdkFocusInitial id="start-button">Start</button>
+</mat-dialog-actions>

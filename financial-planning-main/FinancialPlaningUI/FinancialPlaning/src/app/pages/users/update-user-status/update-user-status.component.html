@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Change Status</h1>
+<mat-dialog-content>
+    <p>Are you sure you want to change status this user?<p>
+    <p class="note">Please, rethink your decision because this will affect to user</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="'update'" cdkFocusInitial id="update-button">Change</button>
+    <button mat-button [mat-dialog-close]="null" id="cancel-button">Cancel</button>
+</mat-dialog-actions>

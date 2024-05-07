@@ -1,0 +1,169 @@
+<main>
+
+  <a [routerLink]="['/plans']" id="back-link"><i class="fa-solid fa-arrow-left-long me-2 mb-3"></i> Back </a>
+  <div class="containerr mb-1" *ngIf="plan">
+    <div id="page-title">
+      <h3><b> {{plan.plan}} </b>
+        <!-- <span class="px-2 py-2 rounded-pill"
+        [ngStyle]="{'background-color': plan.status == 'New' ? 'var(--new-status-background)'
+         : plan.status == 'Waiting for Approval' ? 'var(--inprogress-status-background)'
+         : plan.status == 'Approved' ? 'var(--approved-status-background)'
+        : 'var(--closed-status-background)'}">
+       
+        <i class="fa-solid fa-circle align-middle me-1"
+          [ngStyle]="{'color': plan.status == 'New' ? 'var(--new-status-color)'
+           : plan.status == 'Waiting for Approval' ? 'var(--inprogress-status-color)'
+           : plan.status == 'Approved' ? 'var(--approved-status-color)'
+           : 'var(--closed-status-color)', 'font-size': '10px'}"></i>
+          {{ plan.status}} </span>   -->
+        <span id="status" class="fs-6 rounded-pill px-2 py-2 d-inline-block align-bottom lh-1 me-2" [ngStyle]="{'background-color': plan.status == 'New' ? 'var(--new-status-background)'
+         : plan.status == 'WaitingForApproval' ? 'var(--inprogress-status-background)'
+         : plan.status == 'Approved' ? 'var(--approved-status-background)'
+         : 'var(--closed-status-background)'}">
+
+          <i class="fa-solid fa-circle align-middle me-1" [ngStyle]="{'color': plan.status == 'New' ? 'var(--new-status-color)' 
+          : plan.status == 'WaitingForApproval' ? 'var(--inprogress-status-color)'
+          : plan.status == 'Approved' ? 'var(--approved-status-color)'
+          : 'var(--closed-status-color)', 'font-size': '10px'}"></i>
+          {{ plan.status }} </span>
+        <span role="button" id="version" class="fs-6 rounded-pill px-2 py-2 d-inline-block align-bottom lh-1"
+          [ngStyle]="{'background-color': 'var(--version-background)'}" (click)="openPlanVersionsDialog()">
+          v.{{plan.version}} </span>
+      </h3>
+      <h6 class="fw-bold"> <span class="text-muted fw-light"> Uploaded by </span> {{uploadedBy}} <span
+          class="text-muted fw-light"> at </span> {{convertIsoDateToDdMmYyyy(date)}}</h6>
+    </div>
+
+    <!-- //plan infor -->
+    <div class="top-button">
+      <a class="create-button" (click)="downloadFile(plan.id,plan.version)">
+        <button><i class="fa-solid fa-download me-1"></i> Export</button>
+      </a>
+      <a *ngIf="plan" [routerLink]="['/reup-plan/', plan.id ]" class="export-button">
+        <button *ngIf=" (this.plan.status !== 'Approved') && ((this.plan.department.toLowerCase() === this.getUsersDepartment().toLowerCase()))"> <i class="fa-solid fa-upload me-1"></i> Reup</button>
+      </a>
+    </div>
+  </div>
+  <div *ngIf="plan" id="plan-info" class="mb-3 ps-5">
+    <div class="row justify-content-between">
+      <div class="col-6 px-4">
+        <div class="row">
+          <div class="col-5">
+            <p>Department: </p>
+            <p>Term: </p>
+            <p>Plan Due Date: </p>
+          </div>
+          <div class="col-6">
+            <p><b>{{plan.department}}</b></p>
+            <p><b>{{plan.term}}</b></p>
+            <p><b>{{convertIsoDateToDdMmYyyy(planDueDate)}}</b></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-5 rounded-5 align-bottom d-flex flex-column justify-content-end">
+        <div class="row">
+          <div class="col-6 text-end">
+            <p>Total plan: </p>
+          </div>
+          <div class="col-6 fw-bold" [ngStyle]="{'color': '#0074D9'}">
+            <p>{{totalExpense | number:'1.0-0'}} VND</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="Checkbox">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox color="primary" *ngIf="plan.status=='WaitingForApproval' && this.role !== 'FinancialStaff' " (change)="toggleAllCheckboxes($event)"></mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <mat-checkbox color="primary" *ngIf="plan.status=='WaitingForApproval' && this.role !== 'FinancialStaff'" [checked]="isExpenseApproved(element.no)"
+            (change)="toggleCheckbox(element.no)">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="No">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.no}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Expense">
+        <th mat-header-cell *matHeaderCellDef> Expense </th>
+        <td mat-cell *matCellDef="let element"> {{element.expenseName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="CostType">
+        <th mat-header-cell *matHeaderCellDef> Cost type </th>
+        <td mat-cell *matCellDef="let element"> {{element.costType}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Unit Price (VND)">
+        <th mat-header-cell *matHeaderCellDef> Unit Price </th>
+        <td mat-cell *matCellDef="let element"> {{element.unitPrice| number:'1.0-0'}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Amount">
+        <th mat-header-cell *matHeaderCellDef> Amount </th>
+        <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Currency">
+        <th mat-header-cell *matHeaderCellDef> Currency </th>
+        <td mat-cell *matCellDef="let element"> VND </td>
+      </ng-container>
+      <ng-container matColumnDef="Exchange rate">
+        <th mat-header-cell *matHeaderCellDef> Exchange rate</th>
+        <td mat-cell *matCellDef="let element"> {{element.exchangeRate}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Total">
+        <th mat-header-cell *matHeaderCellDef> Total (VND) </th>
+        <td mat-cell *matCellDef="let element"> {{element.totalAmount| number:'1.0-0' }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Project name">
+        <th mat-header-cell *matHeaderCellDef> Project name </th>
+        <td mat-cell *matCellDef="let element"> {{element.projectName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Supplier name">
+        <th mat-header-cell *matHeaderCellDef> Supplier name </th>
+        <td mat-cell *matCellDef="let element"> {{element.supplierName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="PIC">
+        <th mat-header-cell *matHeaderCellDef>PIC </th>
+        <td mat-cell *matCellDef="let element"> {{element.pic}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Notes">
+        <th mat-header-cell *matHeaderCellDef>Notes </th>
+        <td mat-cell *matCellDef="let element"> {{ element.note ? element.note : 'N/A' }}</td>
+      </ng-container>
+      <ng-container matColumnDef="Expense Status">
+        <th mat-header-cell *matHeaderCellDef>Expense Status</th>
+        <td mat-cell *matCellDef="let element">{{ getExpenseStatus(element.no) }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+    <mat-paginator [length]="listSize" [pageSize]="pageSize" [pageIndex]="pageIndex" (page)="onPageChange($event)"
+      [hidden]="dataSource.length==0 || (dataSource.length < pageSize && pageIndex == 0)">
+    </mat-paginator>
+  </div>
+
+  <div class="abc">
+    <a routerLink="/plans" class="create-button">
+      <button style="background-color: rgb(82, 77, 77); "> Back</button>
+    </a>
+    <a *ngIf="plan.status=='WaitingForApproval'" class="create-button">
+      <button (click)="openSubmitExpenseDialog(plan.id)" class="create-button" *ngIf="plan.status=='WaitingForApproval' && this.role !== 'FinancialStaff'">Approve
+        Expense</button>
+    </a>
+    <a>
+      <button (click)="openSubmitDialog(plan.id)" class="create-button" *ngIf="plan.status=='New'"> Submit for approval</button>
+    </a>
+    <a>
+      <button (click)="openApproveDialog(plan.id)" class="create-button" *ngIf="plan.status=='WaitingForApproval' && this.role !== 'FinancialStaff'"> Approve Plan</button>
+    </a>
+  </div>
+
+</main>

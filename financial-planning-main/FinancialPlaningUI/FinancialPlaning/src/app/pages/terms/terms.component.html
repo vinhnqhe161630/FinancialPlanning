@@ -1,0 +1,76 @@
+<main>
+  <div class="mb-4 pb-3 mx-0 containerr">
+    <div id="page-title">
+      <h1><b>Terms</b></h1>
+      <h6>View all terms</h6>
+    </div>
+    <a routerLink="/create-term" id="create-button" [hidden]="role !== 'Accountant'">
+      <button><i class="fa-solid fa-plus"></i> Create</button>
+    </a>
+  </div>
+  <div class="mb-4 row">
+    <form class="searchBar col-6">
+      <input type="text" placeholder="Search for Terms" (input)="changeSearchText($event)" />
+      <i class="fa-solid fa-search"></i>
+    </form>
+    <button id="filter-button" class="btn col-6 ms-4" (click)="filterStatusEnable = !filterStatusEnable"
+      [ngStyle]="filterStatusEnable ? {'box-shadow': 'inset 0px 5px 17px -6px rgba(0,0,0,0.2)'} : {}"><mat-icon
+        class="align-middle">filter_list</mat-icon> More </button>
+  </div>
+  <div *ngIf="filterStatusEnable">
+    <mat-form-field>
+      <mat-label>Status</mat-label>
+      <mat-select [(value)]="statusOption" (selectionChange)="changeStatusFilter($event)">
+        <mat-option value="All">All</mat-option>
+        <mat-option value="New">New</mat-option>
+        <mat-option value="In Progress">In Progress</mat-option>
+        <mat-option value="Closed">Closed</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" [hidden]="dataSource.length==0"
+    [ngStyle]="dataSource.length<=pageSize ? {'border-radius': '20px'} : {}">
+    <ng-container matColumnDef="term">
+      <th mat-header-cell *matHeaderCellDef>Term</th>
+      <td mat-cell *matCellDef="let term">{{term.termName}}</td>
+    </ng-container>
+    <ng-container matColumnDef="startDate">
+      <th mat-header-cell *matHeaderCellDef>Start Date</th>
+      <td mat-cell *matCellDef="let term">{{convertIsoDateToDdMmYyyy(term.startDate)}}</td>
+    </ng-container>
+    <ng-container matColumnDef="endDate">
+      <th mat-header-cell *matHeaderCellDef>End Date</th>
+      <td mat-cell *matCellDef="let term">{{convertIsoDateToDdMmYyyy(term.endDate)}}</td>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>Status</th>
+      <td mat-cell *matCellDef="let term">
+        <span class="px-2 py-2 rounded-pill"
+          [ngStyle]="{'background-color': term.status == 'New' ? 'var(--new-status-background)' : term.status == 'In Progress' ? 'var(--inprogress-status-background)' : 'var(--closed-status-background)'}">
+          <i class="fa-solid fa-circle align-middle me-1"
+            [ngStyle]="{'color': term.status == 'New' ? 'var(--new-status-color)' : term.status == 'In Progress' ? 'var(--inprogress-status-color)' : 'var(--closed-status-color)', 'font-size': '10px'}"></i>
+          {{term.status}} </span>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let term">
+        <a [routerLink]="[ '/term-details/', term.id ]"><mat-icon>visibility</mat-icon></a>
+        <a [routerLink]="[ '/edit-term/', term.id ]" [hidden]="role !== 'Accountant' || term.status != 'New'"><mat-icon>edit</mat-icon></a>
+        <a [hidden]="role !== 'Accountant' || term.status !== 'New'"
+          (click)="openDeleteDialog(term.id)"><mat-icon>delete</mat-icon></a>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="columnHeaders"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnHeaders;"></tr>
+  </table>
+  <div *ngIf="dataSource.length==0" class="emtry-data-message">
+    No items match your credentials, please try again.
+  </div>
+  <mat-paginator [length]="listSize" [pageSize]="pageSize" [pageIndex]="pageIndex" (page)="onPageChange($event)"
+    [hidden]="dataSource.length==0 || (dataSource.length<pageSize && pageIndex==0)">
+  </mat-paginator>
+</main>
+<footer>
+  <!-- Your footer content goes here -->
+</footer>

@@ -1,0 +1,109 @@
+form {
+    width: 100%;
+    /* Set form width to 100% */
+}
+
+form .col-md-3 {
+    width: 25%;
+    /* Set column width to 50% */
+}
+
+form .col-md-9 {
+    width: 60%;
+    /* Set column width to 50% */
+}
+
+
+h1 {
+    font-weight: 750;
+    color: rgb(51, 50, 50);
+}
+
+h4 {
+    font-weight: bolder;
+    font-size: larger;
+}
+
+form input,
+form select {
+    border: 0;
+    height: 50px;
+    margin-bottom: 10px;
+    padding: 0 15px;
+    background-color: #ebeef3;
+    font-weight: bold;
+
+}
+
+form textarea{
+    font-weight: bold;
+    background-color: #ebeef3;
+}
+
+
+.form-field {
+    position: relative;
+}
+
+.card {
+    background-color: #0101dd00;
+    color: rgb(32, 32, 32);
+    min-height: 80%;
+
+}
+
+table {
+    text-align: center;
+    overflow: scroll;
+}
+
+
+main>div {
+    border-radius: 15px;
+    background-color: #FAF6F6;
+    box-shadow: rgba(228, 223, 216, 0.2) 0px 8px 24px;
+    padding: 20px;
+}
+
+main {
+    position: relative;
+    width: 100%;
+    background-color: #E6E6E6;
+    box-shadow: none;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-top: 30px;
+    padding-bottom: 200px;
+    /* margin-left: 2%; */
+}
+
+/* Trích dẫn phần tử chứa các lựa chọn "Active" và "Deactive" */
+.choice-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: bold;
+    background-color: #E6E6E6;
+    margin-top: 10px;
+    margin-right: 4%;
+    padding: 2px;
+    font-size: larger;
+}
+
+/* Căn chỉnh nút "Change Status" và "Cancel" */
+.btn-primary,
+.btn-secondary {
+    margin-right: 10px;
+    /* Tạo khoảng cách giữa các nút */
+}
+
+a.user-list-link {
+    color: black;
+    text-decoration: none;
+    /* Màu chữ đen */
+}
+
+.currentUser {
+    color: red;
+    margin-bottom: 10px;
+}

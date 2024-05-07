@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Submit</h1>
+<mat-dialog-content>
+    <p>Are you sure you want to submit this expenses?<p>
+    <p class="note">Please, rethink your decision because you will not be able to undo this action</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close id="cancel-button">Cancel</button>
+    <button mat-button [mat-dialog-close]="'Submit'" cdkFocusInitial id="Submit-button">Submit</button>
+</mat-dialog-actions>

@@ -1,0 +1,151 @@
+main {
+    position: absolute;
+    height: 100vh;
+    width: calc(100vw - 100px);
+    max-height: 100vh;
+    max-width: calc(100vw - 100px);
+    left: 80px;
+    padding: 30px;
+
+}
+
+.container {
+    position: relative;
+}
+
+div:has(#page-title) {
+    display: flex;
+}
+
+button {
+    
+    border: none;
+}
+
+.backgroundbutton{
+    background-color: var(--button-background) !important;
+    color: white;
+}
+
+#cancel-button{
+    background-color: #ff204e;
+    border: none;
+    width: 100px;
+    /* animation: bounce-v 3.6s infinite; */
+}
+
+#start-button {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+#start-button>button {
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: var(--button-background);
+}
+
+#start-button i {
+    margin-right: 5px;
+}
+
+#start-button:hover>button {
+    background-color: var(--button-hover);
+}
+.container {
+    position: relative;
+    border-bottom: 2px solid var(--white-smoke);
+  }
+form {
+    width: 100%;
+    /* Set form width to 100% */
+}
+
+form .col-6 {
+    width: 50%;
+    /* Set column width to 50% */
+}
+
+form input,
+form select {
+    border: 2px solid #575757;
+    border-radius: 4px;
+    /* width: 60%; */
+    height: 50px;
+    padding: 0 15px;
+    transition: .25s ease;
+}
+
+mat-datepicker-toggle {
+    order: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 50px;
+    right: 20px;
+}
+
+
+.datepicker-wrapper {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+form input:focus, form select:focus {
+    border-color: rgb(133, 68, 165);
+}
+
+.form-field {
+    position: relative;
+}
+
+/* form label {
+    position: absolute;
+    top: 25px;
+    transform: translateY(-50%);
+    left: 30px;
+    color: #575757;
+    user-select: none;
+    pointer-events: none;
+    transition: .25s ease;
+    font: 400 16px/1.5 'Roboto', sans-serif;
+} */
+
+.form-control:focus+label {
+    top: 0px;
+    padding: 10px;
+    display: inline-block;
+    background-color: white;
+    color: rgb(133, 68, 165);
+}
+
+form div.error-message {
+    color: red;
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+
+table {
+    text-align: center;
+    overflow: scroll;
+}
+
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#back-link {
+    font-size: 18px;
+}
+
+#back-link:hover {
+    color: var(--button-background);
+}

@@ -1,0 +1,42 @@
+<main>
+  <div class="retangle" style="background-color: #eefbfd; left: 25%;"></div>
+  <div class="retangle" style="background-color: #d3f5fa; left: 0%;"></div>
+  <div class="retangle" style="background-color: #c0f1f8; left: -25%;"></div>
+  <mat-card class="row">
+    <div class="col-6 h-100">
+      <h6 id="company-name">FinancialPlanning</h6>
+      <div class="d-flex flex-column justify-content-center" [ngStyle]="{'height': '90%'}">
+        <mat-card-header class="mb-4">
+          <mat-card-title>Welcome back</mat-card-title>
+          <mat-card-subtitle>Please enter your detail</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <form [formGroup]="loginForm" class="w-100" (keyup.enter)="login()" (ngSubmit)="login()">
+            <mat-form-field class="w-100 mb-2" hideRequiredMarker="true">
+              <mat-label>Email Address</mat-label>
+              <input matInput type="email" formControlName="email" required />
+              <mat-error *ngIf="loginForm.get('email')?.hasError('required')"> {{ MESSAGE_CONSTANTS.ME003 }}
+              </mat-error>
+              <mat-error
+                *ngIf="!loginForm.get('email')?.hasError('required') && loginForm.get('email')?.hasError('email')"> {{
+                MESSAGE_CONSTANTS.ME002 }} </mat-error>
+            </mat-form-field>
+            <mat-form-field class="w-100 mb-2" hideRequiredMarker="true">
+              <mat-label>Password</mat-label>
+              <input matInput type="password" formControlName="password" required />
+              <mat-error *ngIf="loginForm.get('password')?.hasError('required')"> {{ MESSAGE_CONSTANTS.ME003 }}
+              </mat-error>
+            </mat-form-field>
+            <p class="error">{{ errorMessage }}</p>
+            <button mat-raised-button type="submit" class="w-100" [disabled]="isLoading">
+              <span *ngIf="isLoading"><mat-spinner [diameter]="20"></mat-spinner></span>
+              <span *ngIf="!isLoading">Log in</span>
+            </button>
+          </form>
+          <a routerLink="/forgot-password" class="d-table mx-auto mt-2">Forgot password</a>
+        </mat-card-content>
+      </div>
+    </div>
+    <img src="../../../../assets/img/login.png" alt="Forgot Password" class="col-6">
+  </mat-card>
+</main>

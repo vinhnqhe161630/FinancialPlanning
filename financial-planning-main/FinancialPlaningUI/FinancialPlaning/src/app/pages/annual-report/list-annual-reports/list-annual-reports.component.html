@@ -1,0 +1,61 @@
+<!-- 
+displayedColumns: string[] = ['Index','Year','TotalExpense','TotalDepartment','Create-Date']; -->
+
+<main>
+    <div class="container mb-4 pb-3 mx-0">
+        <div id="page-title">
+            <h2><b> Annual Report</b></h2>
+            <h5>Annual Report List</h5>
+        </div>
+
+    </div>
+    <div class="mb-4 row">
+        <form class="searchBar col-6">
+          <input type="text" placeholder="Search by year" (input)="changeSearchText($event)" />
+          <i class="fa-solid fa-search"></i>
+        </form>
+      </div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" [hidden]="dataSource.length==0">
+
+        <ng-container matColumnDef="Index">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element; let i = index"> {{ i + 1 }} </td>
+        </ng-container>
+        <ng-container matColumnDef="Year">
+            <th mat-header-cell *matHeaderCellDef> Year </th>
+            <td mat-cell *matCellDef="let element"> {{element.year}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="TotalExpense">
+            <th mat-header-cell *matHeaderCellDef> Total Expense </th>
+            <td mat-cell *matCellDef="let element"> {{element.totalExpense| number:'1.0-0'}} VND </td>
+        </ng-container>
+
+        <ng-container matColumnDef="TotalDepartment">
+            <th mat-header-cell *matHeaderCellDef> Total Department </th>
+            <td mat-cell *matCellDef="let element"> {{element.totalDepartment}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Create-Date">
+            <th mat-header-cell *matHeaderCellDef> Created Date </th>
+            <td mat-cell *matCellDef="let element"> {{convertIsoDateToDdMmYyyy(element.createDate)}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="Action">
+            <th mat-header-cell *matHeaderCellDef>Action</th>
+            <td mat-cell *matCellDef="let element">
+                <a [routerLink]="[ '/annualreport-details/', element.year ]"><mat-icon>visibility</mat-icon></a>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+    <div *ngIf="dataSource.length==0" class="emtry-data-message">
+        No items match your credentials, please try again.
+    </div>
+    <mat-paginator [length]="listSize" [pageSize]="pageSize" [pageIndex]="pageIndex" (page)="onPageChange($event)"
+        [hidden]="dataSource.length==0 || (dataSource.length<pageSize && pageIndex==0)">
+    </mat-paginator>
+</main>

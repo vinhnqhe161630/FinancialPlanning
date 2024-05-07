@@ -1,0 +1,101 @@
+main {
+  position: absolute;
+  height: 100vh;
+  width: calc(100vw - 60px);
+  max-height: 100vh;
+  max-width: calc(100vw - 60px);
+  left: 60px;
+  padding: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#back-link {
+  font-size: 18px;
+}
+
+#back-link:hover {
+  color: var(--button-background);
+}
+
+.containerr {
+  position: relative;
+  width: 100%;
+  
+}
+
+h6 {
+  font-size: smaller;
+}
+
+div:has(#page-title) {
+  display: flex;
+}
+
+#version:hover {
+  color: #616577;
+
+}
+#version {
+  
+  text-decoration: underline;
+}
+
+button {
+  background: var(--button-background);
+  border: none;
+}
+
+.top-button {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.top-button button {
+  width: 110px;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.top-button button:hover {
+  background-color: #553cb9;
+}
+
+#report-info p {
+  margin: 10px 0;
+}
+
+table {
+  width: 100%;
+  min-height: auto;
+  border: 2px solid var(--white-smoke);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  overflow: hidden !important;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+th {
+  font-weight: 900;
+  background-color: #f2f4f3 !important;
+}
+
+::ng-deep .mat-mdc-paginator {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.underline {
+  text-decoration: underline;
+  cursor: pointer;
+}

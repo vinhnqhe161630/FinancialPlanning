@@ -1,0 +1,90 @@
+main {
+  height: 100vh;
+  width: 100vw;
+  color: #070f2b;
+  position: relative;
+  overflow: hidden;
+}
+
+.retangle {
+  height: 1500px;
+  width: 1500px;
+  position: absolute;
+  rotate: 45deg;
+  top: 40%;
+  transform: translateX(-50%);
+}
+
+mat-card {
+  height: 75%;
+  width: 75%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 30px;
+  border-radius: 35px;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#company-name {
+  font-weight: bold;
+}
+
+mat-card-header {
+  margin-bottom: 1.5rem !important;
+}
+
+mat-card-title {
+  font-size: 22px;
+  font-weight: bolder;
+}
+
+mat-card-subtitle {
+  font-weight: 500;
+}
+
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: transparent !important;
+}
+
+::ng-deep .mat-mdc-raised-button:not(:disabled) {
+  background-color: #1e3163 !important;
+  color: #f8f8f8 !important;
+}
+
+button:hover {
+  background-color: #1a2547 !important;
+}
+
+a {
+  text-decoration: none;
+  color: #070f2b;
+}
+
+a > i {
+  margin-right: 0.5rem;
+}
+
+img {
+  position: absolute;
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+}
+
+.error {
+  background-color: #F96C57;
+  color: white;
+  padding: 10px;
+}
+
+.error:empty {
+  display: none;
+}

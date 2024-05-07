@@ -1,0 +1,32 @@
+﻿Format DD/MM/YYYY;;Dropdown list;Name of the expense;Dropdown list;;;Dropdown list;VLookup;;;Dropdown list;Dropdown list;;
+DATE;TERM;DEPARTMENT;EXPENSE;COST TYPE;UNIT PRICE;AMOUNT;Currency;Exchange rate;TOTAL;;PROJECT NAME;SUPPLIER NAME;PIC;NOTE
+04/01/2023;Q1_2023;Delivery;EXPENSEs;Operation;$1000000;6;VND;1.0;$6000000;;Fake Project 1;Supplier A;John Doe;1
+15/01/2023;Q1_2023;Marketing;EXPENSEs;Operation;$1500000;8;VND;1.0;$12000000;;Fake Project 2;Supplier B;Jane Smith;2
+28/02/2023;Q1_2023;HR;EXPENSEs;Operation;$2000000;4;VND;1.0;$8000000;;Fake Project 3;Supplier C;Michael Johnson;3
+08/03/2023;Q1_2023;Finance;EXPENSEs;Operation;$1750000;3;VND;1.0;$5250000;;Fake Project 4;Supplier D;Emily Brown;4
+15/04/2023;Q2_2023;IT;EXPENSEs;Operation;$1200000;5;VND;1.0;$6000000;;Fake Project 5;Supplier E;David Wilson;5
+20/05/2023;Q2_2023;Operations;EXPENSEs;Operation;$1400000;7;VND;1.0;$9800000;;Fake Project 6;Supplier F;Sarah Martinez;6
+06/06/2023;Q2_2023;Legal;EXPENSEs;Operation;$1800000;2;VND;1.0;$3600000;;Fake Project 7;Supplier G;Robert Taylor;7
+18/07/2023;Q3_2023;Research;EXPENSEs;Operation;$1100000;9;VND;1.0;$9900000;;Fake Project 8;Supplier H;Emma Anderson;8
+29/08/2023;Q3_2023;Sales;EXPENSEs;Operation;$1600000;1;VND;1.0;$1600000;;Fake Project 9;Supplier I;Christopher Garcia;9
+10/09/2023;Q3_2023;Production;EXPENSEs;Operation;$1300000;6;VND;1.0;$7800000;;Fake Project 10;Supplier J;Amanda Thomas;10
+23/10/2023;Q4_2023;Customer Service;EXPENSEs;Operation;$1900000;4;VND;1.0;$7600000;;Fake Project 11;Supplier K;James Hernandez;11
+07/11/2023;Q4_2023;Quality Assurance;EXPENSEs;Operation;$1250000;8;VND;1.0;$10000000;;Fake Project 12;Supplier L;Laura Nguyen;12
+15/12/2023;Q4_2023;Logistics;EXPENSEs;Operation;$1700000;3;VND;1.0;$5100000;;Fake Project 13;Supplier M;Brian Lee;13
+04/01/2024;Q1_2024;Delivery;EXPENSEs;Operation;$1150000;7;VND;1.0;$8050000;;Fake Project 14;Supplier N;Michelle Perez;14
+18/02/2024;Q1_2024;Marketing;EXPENSEs;Operation;$1350000;2;VND;1.0;$2700000;;Fake Project 15;Supplier O;Daniel Moore;15
+02/03/2024;Q1_2024;HR;EXPENSEs;Operation;$1450000;5;VND;1.0;$7250000;;Fake Project 16;Supplier P;Linda Hill;16
+15/04/2024;Q2_2024;Finance;EXPENSEs;Operation;$1550000;9;VND;1.0;$13950000;;Fake Project 17;Supplier Q;Matthew Scott;17
+20/05/2024;Q2_2024;IT;EXPENSEs;Operation;$1650000;3;VND;1.0;$4950000;;Fake Project 18;Supplier R;Karen Ramirez;18
+06/06/2024;Q2_2024;Operations;EXPENSEs;Operation;$1750000;6;VND;1.0;$10500000;;Fake Project 19;Supplier S;Jason Carter;19
+18/07/2024;Q3_2024;Legal;EXPENSEs;Operation;$1850000;1;VND;1.0;$1850000;;Fake Project 20;Supplier T;Susan Lopez;20
+29/08/2024;Q3_2024;Research;EXPENSEs;Operation;$1950000;7;VND;1.0;$13650000;;Fake Project 21;Supplier U;Ryan Clark;21
+10/09/2024;Q3_2024;Sales;EXPENSEs;Operation;$1650000;4;VND;1.0;$6600000;;Fake Project 22;Supplier V;Patricia King;22
+23/10/2024;Q4_2024;Production;EXPENSEs;Operation;$1750000;8;VND;1.0;$14000000;;Fake Project 23;Supplier W;William Martinez;23
+07/11/2024;Q4_2024;Customer Service;EXPENSEs;Operation;$1850000;2;VND;1.0;$3700000;;Fake Project 24;Supplier X;Amy Adams;24
+15/12/2024;Q4_2024;Quality Assurance;EXPENSEs;Operation;$1950000;5;VND;1.0;$9750000;;Fake Project 25;Supplier Y;Steven Turner;25
+04/01/2025;Q1_2025;Logistics;EXPENSEs;Operation;$1200000;9;VND;1.0;$10800000;;Fake Project 26;Supplier Z;Olivia Rivera;26
+18/02/2025;Q1_2025;Delivery;EXPENSEs;Operation;$1300000;3;VND;1.0;$3900000;;Fake Project 27;Supplier AA;Michaela Cooper;27
+02/03/2025;Q1_2025;Marketing;EXPENSEs;Operation;$1400000;7;VND;1.0;$9800000;;Fake Project 28;Supplier BB;Joseph Bell;28
+15/04/2025;Q2_2025;HR;EXPENSEs;Operation;$1500000;1;VND;1.0;$1500000;;Fake Project 29;Supplier CC;Rebecca Evans;29
+;;;;;;;;;;;;;;

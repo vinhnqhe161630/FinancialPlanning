@@ -1,0 +1,119 @@
+<main>
+    <h3><b>User List</b></h3>
+    <h6>
+        <b><a routerLink="/user-list" class="user-list-link">User List</a></b> > User Detail
+    </h6>
+    <div class="doc-info mb-5 card">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <div class="currentUser"> <b *ngIf="isCurrentUser">This is your account information !!!</b></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row align-items-center">
+                        <div class="col-md-3">
+                            <h4><label for="username" class="form-label">User Name</label></h4>
+                        </div>
+                        <div class="col-md-9">
+                            <input class="form-control" type="text" id="username" formControlName="username" />
+                        </div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-md-3">
+                            <h4><label for="email" class="form-label">Email</label></h4>
+                        </div>
+                        <div class="col-md-9">
+                            <input class="form-control" type="text" id="email" formControlName="email" />
+                        </div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-md-3">
+                            <h4><label for="dob" class="form-label">Date of birth</label></h4>
+                        </div>
+                        <div class="col-md-9">
+                            <input class="form-control" type="text" id="dob" formControlName="dob" />
+                        </div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-md-3">
+                            <h4><label for="department" class="form-label">Department</label></h4>
+                        </div>
+                        <div class="col-md-9">
+                            <input class="form-control" type="text" id="department" formControlName="department" />
+                        </div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-md-3">
+                            <h4><label for="role" class="form-label">Role</label></h4>
+                        </div>
+                        <div class="col-md-9">
+                            <input class="form-control" type="text" id="role" formControlName="role" />
+                        </div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-md-3">
+                            <h4><label for="note" class="form-label">Notes</label></h4>
+                        </div>
+                        <div class="col-md-9">
+                            <textarea class="form-control" type="text" id="note" formControlName="note"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row align-items-center">
+                        <div class="col-md-3">
+                            <h4><label for="fullname" class="form-label">Full Name</label></h4>
+                        </div>
+                        <div class="col-md-9">
+                            <input class="form-control" type="text" id="fullname" formControlName="fullname" />
+                        </div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-md-3">
+                            <h4><label for="phonenumber" class="form-label">Phone Number</label></h4>
+                        </div>
+                        <div class="col-md-9">
+                            <input class="form-control" type="text" id="phonenumber" formControlName="phonenumber" />
+                        </div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-md-3">
+                            <h4><label for="address" class="form-label">Address</label></h4>
+                        </div>
+                        <div class="col-md-9">
+                            <input class="form-control" type="text" id="address" formControlName="address" />
+                        </div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-md-3">
+                            <h4><label for="position" class="form-label">Position</label></h4>
+                        </div>
+                        <div class="col-md-9">
+                            <input class="form-control" type="text" id="position" formControlName="position" />
+                        </div>
+                    </div>
+                 
+                </div>
+            </div>
+            <div class="row mt-4 justify-content-center">
+                <div class="col-12 d-flex justify-content-center">
+                    <button *ngIf="!isCurrentUser" type="button" class="btn btn-primary btn-lg me-2"
+                        (click)="openUpdateDialog()">Change Status</button>
+                    <button type="button" class="btn btn-secondary btn-lg" (click)="cancel()">Cancel</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+    <div class="choice-container">
+        <!-- Phần tử "Active" -->
+        <div *ngIf="userForm.get('status')?.value === 1" class="status-option text-success">
+            <strong style="color:#18d312"> Active User</strong>
+        </div>
+        <!-- Phần tử "Deactive" -->
+        <div *ngIf="userForm.get('status')?.value === 0" class="status-option text-danger">
+            <strong style="color:#ff3939"> InActive User</strong>
+        </div>
+    </div>
+</main>
+<footer>
+</footer>

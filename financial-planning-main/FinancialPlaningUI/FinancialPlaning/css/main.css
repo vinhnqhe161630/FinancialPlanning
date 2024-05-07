@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*Navbar*/
+nav {
+  float: right;
+  cursor: pointer;
+  margin: 10px 30px;
+}
+
+#userinfo {
+  position: relative;
+  float: right;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 2px solid;
+  border-radius: 25px;
+  background-color: white;
+  z-index: 3;
+  transition: .75s;
+}
+
+#userinfo.clicked {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 15px 30px -6px inset, rgba(0, 0, 0, 0.3) 0px 11px 22px -11px inset;
+}
+
+#userinfo > i {
+  font-size: x-large;
+}
+
+#username {
+  margin-left: 10px;
+  font-size: small;
+}
+
+#usermenu {
+  position: absolute;
+  top: 25px;
+  padding: 10px;
+  border: 1.5px solid;
+  border-radius: 30px;
+  transition: .75s;
+  max-height: 0px;
+  overflow: hidden;
+  background-color: white;
+  z-index: 2;
+}
+
+#usermenu > .blank {
+    height: 30px;
+}
+
+#usermenu a {
+    display: block;
+    margin: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+#usermenu i {
+    width: 20px;
+    margin-right: 5px;
+    text-align: center;
+}
+
+
+/*Sidenav*/
+#sidenav {
+  position: fixed;
+  background-color: #040730fe;
+  width: 70px;
+  height: 100vh;
+  padding-top: 1px;
+  transition: 0.5s;
+  z-index: 1;
+  opacity: 80%;
+}
+
+#sidenav:hover {
+  width: 200px;
+  transition: 0.5s;
+}
+
+#sidenav a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  margin: 20px 15px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#sidenav a:first-child {
+  margin-top: 15px;
+  margin-bottom: 35px;
+  font-size: large;
+}
+
+#sidenav i {
+  display: flex;
+  height: 40px;
+  width: 40px;
+  margin-right: 20px;
+  font-size: medium;
+  text-align: center;
+  background-color: #1D2153;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 10px;
+}
+
+/*Main*/
+main {
+  position: absolute;
+  height: calc(100vh - 120px);
+  width: calc(100vw - 100px);
+  border-radius: 20px;
+  top: 100px;
+  left: 85px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

@@ -1,0 +1,211 @@
+<main>
+    <!-- <h1 class="mb-4">Update Term</h1>
+    <button (click)="startTerm()">
+        Start Term
+    </button> -->
+    <a [routerLink]="['/terms']" id="back-link"><i class="fa-solid fa-arrow-left-long me-2 mb-3"></i> Back </a>     
+    <div class="container mb-4 pb-3 mx-0">
+        <div id="page-title">
+          <h1><b>Term Manager</b></h1>
+          
+        </div>
+        <a  id="start-button" (click)="startTerm()">
+          <button><i class="fa-solid fa-pen-to-square"></i> Start Term</button>
+        </a>
+      </div>
+    <!-- <div class="container h-100"> -->
+    <div class="row d-flex justify-content-center align-items-center ">
+        <!-- <div class="col-xl-9"> -->
+        <!-- <div class="card" style="border-radius: 15px;"> -->
+        <!-- <div class="card-body"> -->
+          
+            <form [formGroup]="termForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+    
+                    <div class="col-md-6">
+                        <div class="row align-items-center pt-4 pb-3">
+                            <div class="col-md-3 ps-5">
+                                <h6 class="mb-0">Term name</h6>
+                            </div>
+                            <div class="col-md-8 pe-3">
+                                <input class="form-control form-control-lg" type="text" id="term-name"
+                                    formControlName="termName" />
+                            </div>
+                            <div class="col-md-3">
+                                <br>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="error-message"
+                                    *ngIf="termForm.get('termName')?.errors?.['required'] && termForm.get('termName')?.touched">
+                                    <span class="text-danger">
+                                        Term Name is required
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="col-md-6">
+                        <div class="row align-items-center pt-4 pb-3">
+                            <div class="col-md-3 ps-5">
+                                <h6 class="mb-0">Start date</h6>
+                            </div>
+                            <div class="datepicker-wrapper col-md-8 pe-3">
+                                <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+                                <input class="form-control form-control-lg" matInput [matDatepicker]="startDatePicker"
+                                    formControlName="startDate">
+                                <mat-datepicker #startDatePicker></mat-datepicker>
+                            </div>
+                            <div class="col-md-3">
+                                <br>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="error-message col-md-8"
+                                    *ngIf="termForm.get('startDate')?.errors?.['required'] && termForm.get('startDate')?.touched">
+                                    <span class="text-danger">
+                                        Start Date is required
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <hr class="mx-n3">
+    
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row align-items-center pt-4 pb-3">
+                            <div class="col-md-3 ps-5">
+                                <h6 class="mb-0">Duration</h6>
+                            </div>
+                            <div class="col-md-8 pe-3">
+                                <select class="form-control form-control-lg" id="duration" formControlName="duration">
+                                    <option value="1_month">1 Month</option>
+                                    <option value="quarter">Quarter</option>
+                                    <option value="half_year">Half Year</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row align-items-center pt-4 pb-3">
+                            <!-- End date -->
+                            <div class="col-md-3 ps-5">
+                                <h6 class="mb-0">End date</h6>
+                            </div>
+                            <div class="col-md-8 pe-3 datepicker-wrapper">
+                                <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+                                <input class="form-control form-control-lg" matInput [matDatepicker]="endDatePicker"
+                                    formControlName="endDate">
+                                <mat-datepicker #endDatePicker></mat-datepicker>
+                                <!-- </div> -->
+                            </div>
+                            <div class="col-md-3">
+                                <br>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="error-message"
+                                    *ngIf="termForm.get('endDate')?.errors?.['required'] && termForm.get('endDate')?.touched">
+                                    <span class="text-danger">End Date is required</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <hr class="mx-n3">
+    
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row align-items-center pt-4 pb-3">
+                            <div class="col-md-3 ps-5">
+                                <h6 class="mb-0">Plan due date</h6>
+                            </div>
+                            <div class="col-md-8 pe-3 datepicker-wrapper">
+                                <mat-datepicker-toggle matSuffix [for]="planDuePicker"></mat-datepicker-toggle>
+                                <input class="form-control form-control-lg" matInput [matDatepicker]="planDuePicker"
+                                    formControlName="planDueDate">
+                                <mat-datepicker #planDuePicker></mat-datepicker>
+                            </div>
+                            <div class="col-md-3">
+                                <br>
+                            </div>
+                            <!-- <div class="col-md-3 pe-5"> -->
+                            <div class="col-md-8">
+                                <div class="error-message" *ngIf="termForm.get('planDueDate')?.touched || termForm.get('startDate')?.touched || termForm.get('duration')?.touched">
+                                    <span class="text-danger">
+                                        {{ getPlanDueDateErrorMessage() }}
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- Add more error messages as needed -->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row align-items-center pt-4 pb-3">
+                            <div class="col-md-3 ps-5">
+                                <h6 class="mb-0">Report due date</h6>
+                            </div>
+                            <div class="col-md-8 pe-3 datepicker-wrapper">
+    
+                                <mat-datepicker-toggle matSuffix [for]="reportDueDate"></mat-datepicker-toggle>
+                                <input class="form-control form-control-lg" matInput [matDatepicker]="reportDueDate"
+                                    formControlName="reportDueDate">
+                                <mat-datepicker #reportDueDate></mat-datepicker>
+    
+                            </div>
+                            <div class="col-md-3">
+                                <br>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="error-message" *ngIf="termForm.get('reportDueDate')?.touched || termForm.get('startDate')?.updateOn || termForm.get('duration')?.updateOn">
+                                    <span class="text-danger">
+                                        {{getReportDueDateErrorMessage() }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- </div> -->
+                        <!-- Report Due Date -->
+                    </div>
+    
+
+            </div>
+
+            <div class="row align-items-center justify-content-center py-3">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary btn-lg me-3 backgroundbutton">Update</button>
+                    <button id="cancel-button" routerLink="/terms" type="button" class="btn btn-secondary btn-lg" (click)="onCancel()">Cancel</button>
+                </div>
+            </div>
+    
+                <!-- <div class="row align-items-center justify-content-center py-3">
+                    <div class="col-md-6 text-center">
+                        <button id="create-button" type="submit" class="btn btn-primary btn-lg me-3">Create</button>
+                        <button id="cancel-button" routerLink="/terms" type="button"
+                            class="btn btn-secondary btn-lg">Cancel</button>
+    
+                    </div>
+                </div> -->
+    
+                <!-- <div class="row align-items-center justify-content-center py-3">
+                    <div class="col-md-6 text-center">
+                        <button type="submit" class="btn btn-primary btn-lg me-3">Update</button>
+                        <button routerLink="/terms" type="button" class="btn btn-secondary btn-lg" (click)="onCancel()">Cancel</button>
+                    </div>
+                </div> -->
+    
+            </form>
+        <!-- </div> -->
+        <!-- </div> -->
+
+        <!-- </div> -->
+    </div>
+    <!-- </div> -->
+
+</main>
+
+<footer>
+    <!-- Your footer content goes here -->
+</footer>
